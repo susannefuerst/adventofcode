@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 
 def productof2(numbers,targetsum):
+    complements = []
     for number in numbers:
-        if number > targetsum: continue
-        target = targetsum - number
-        for othernumber in numbers:
-            if othernumber == target:
-                return othernumber*number
+        if number in complements:
+            return number*numbers[complements.index(number)]
+        complements.append(targetsum - number)
     return -1
 
 def productof3(numbers,targetsum):
